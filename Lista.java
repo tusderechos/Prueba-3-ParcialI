@@ -102,11 +102,21 @@ public class Lista {
             throw new IndexOutOfBoundsException("Indice fuera de rango");
         }
         
+        Nodo temp = Inicio;
+        
+        while (temp != null) {
+            if (temp.codigo == objeto.codigo) {
+                System.out.println("Ya existe ese codigo");
+                return;
+            }
+            temp = temp.siguiente;
+        }
+        
         if (indice == 0) {
             objeto.siguiente = Inicio;
             Inicio = objeto;
         } else {
-            Nodo temp = Inicio;
+            temp = Inicio;
             
             for (int i = 1; i < indice - 1; i++) {
                 temp = temp.siguiente;
